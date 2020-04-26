@@ -1,0 +1,270 @@
+package projetobanco;
+
+import java.util.Scanner;
+
+public class ProjetoBanco {
+    
+        static int saldo, deposito, saque, sair, opcao, opcao2,test, transferir;
+        static double  conta, conta2, conta3, pagamento;
+        static String cpf;
+        static String senha;
+        static double saldoConta = 1000.00;
+        static String nome = "Marcio Maestrelo Funes";
+        static int numConta, valorT , numAgencia, DigitoT;
+        static String Banco;
+        
+    static void menu(){
+        
+        Scanner ler = new Scanner(System.in);
+       
+        System.out.println("Seja muito bem vindo ao Banco Central Facens!");
+        System.out.println("");
+        
+        System.out.print("Para prosseguir por favor digite seu CPF: ");
+        cpf = ler.next();
+        
+        if(cpf.equals("123.456.789-00") == true || cpf.equals("12345678900") == true){
+            System.out.print("Seja bem vindo " + nome);
+            System.out.println("");
+        }else{
+            System.out.print("CPF incorreto, por favor tente novamente");
+            System.out.println("");
+            System.out.println("=============================--------=============================");
+            menu();    
+        }
+            
+        for(int i = 1; i <=3; i++){
+            System.out.print("Por favor " + nome + " digite sua senha: ");
+            senha = ler.next();
+
+        if(senha.equals("01020304") == true){
+            System.out.print("Muito bem, podemos prosseguir!");
+            System.out.println("");
+            break;            
+        }else if (i == 3){
+            System.out.print("Sua conta foi bloqueada po conta de varias tentativas.");
+            System.exit(0);
+            System.out.println("");
+            
+        }else if(senha != "01020304"){
+            System.out.print("Senha incorreta, tente novamente.");
+            System.out.println("");
+        }
+        } 
+               
+        for(int i = 1; i <= 999999; i++){
+        System.out.println("");
+        System.out.print("------- Menu -------");
+        System.out.println("");
+        System.out.println("Opções: ");
+        System.out.println("1 - Para SALDO");
+        System.out.println("2 - Para DEPÓSITO");
+        System.out.println("3 - Para SAQUE");
+        System.out.println("4 - Para PAGAMENTO");
+        System.out.println("5 - Para TRANSFERENCIA");
+        System.out.println("0 - Para SAIR");
+        System.out.println("--------------------");
+        System.out.println("");
+        System.out.print("Digite uma dessas opções mostradas acima: ");
+        opcao = ler.nextInt();
+        
+        if(opcao >= 0 && opcao <= 5){
+            
+        switch(opcao){
+            case 1: 
+                System.out.println("");
+                System.out.println("=============================--------=============================");
+                System.out.println("");
+                System.out.println("Seu saldo é igual a R$" + saldoConta);
+                System.out.println("");               
+                System.out.println("=============================--------=============================");
+                System.out.println(""); 
+                
+                System.out.println("Você quer sair ou fazer mais uma operação: ");
+                System.out.println("0 - Sair do programa");
+                System.out.println("1 - Fazer outra operação");
+                System.out.print("Digite uma das opções acima: ");
+                test = ler.nextInt();
+                if(test == 0){
+                    System.out.println("=============================--------=============================");
+                    System.out.println("");
+                    menu();
+                }else{  
+                    System.out.println("=============================--------=============================");
+                    System.out.println("");
+                    break;
+                }
+                                                          
+            case 2:
+                System.out.println("");
+                System.out.println("=============================--------=============================");
+                System.out.println("");
+                System.out.print("Digite o valor do deposito: ");
+                deposito = ler.nextInt();
+                System.out.println("");
+                conta = deposito + saldoConta;
+                System.out.println("");
+                System.out.println("O saldo da sua conta atualmente é igual a R$" + conta);
+                System.out.println("");
+                System.out.println("=============================--------=============================");
+                System.out.println("");
+                saldoConta = conta;
+                
+                System.out.println("Você quer sair ou fazer mais uma operação: ");
+                System.out.println("0 - Sair do programa");
+                System.out.println("1 - Fazer outra operação");
+                System.out.print("Digite uma das opções acima: ");
+                test = ler.nextInt();
+                if(test == 0){
+                    System.out.println("=============================--------=============================");
+                    System.out.println("");
+                    menu();
+                }else{  
+                    System.out.println("=============================--------=============================");
+                    System.out.println("");
+                    break;
+                }
+ 
+            case 3:
+                System.out.println("");
+                System.out.println("=============================--------=============================");
+                System.out.println("");
+                System.out.print("Digite o valor do saque: ");
+                saque = ler.nextInt();
+                System.out.println("");
+                conta2 = saldoConta - saque;
+                System.out.println("");
+                System.out.print("O saldo da sua conta atualmente é igual a R$" + conta2);
+                saldoConta = conta2;
+                System.out.println("");
+                System.out.println("=============================--------=============================");
+                System.out.println("");
+                
+                System.out.println("Você quer sair ou fazer mais uma operação: ");
+                System.out.println("0 - Sair do programa");
+                System.out.println("1 - Fazer outra operação");
+                System.out.print("Digite uma das opções acima: ");
+                test = ler.nextInt();
+                if(test == 0){
+                    System.out.println("=============================--------=============================");
+                    System.out.println("");
+                    menu();
+                }else{  
+                    System.out.println("=============================--------=============================");
+                    System.out.println("");
+                    break;
+                }
+            
+            case 4:                
+                System.out.println("");
+                System.out.println("=============================--------=============================");
+                System.out.println("");
+                System.out.print("Digite o valor do pagamento: ");
+                pagamento = ler.nextInt();
+                System.out.println("");
+                conta2 = saldoConta - pagamento;
+                System.out.println("");
+                System.out.print("O saldo da sua conta atualmente é igual a R$" + conta2);
+                saldoConta = conta2;
+                System.out.println("");
+                System.out.println("=============================--------=============================");
+                System.out.println(""); 
+                
+                System.out.println("Você quer sair ou fazer mais uma operação: ");
+                System.out.println("0 - Sair do programa");
+                System.out.println("1 - Fazer outra operação");
+                System.out.print("Digite uma das opções acima: ");
+                test = ler.nextInt();
+                if(test == 0){
+                    System.out.println("=============================--------=============================");
+                    System.out.println("");
+                    menu();
+                }else{  
+                    System.out.println("=============================--------=============================");
+                    System.out.println("");
+                    break;
+                }
+            
+            case 5:
+                
+                System.out.println("");
+                System.out.println("=============================--------=============================");
+                System.out.println("");
+                System.out.print("Digite o numero da conta: ");
+                numConta = ler.nextInt();
+                System.out.println("");
+                System.out.print("Digite o numero da agencia: ");
+                numAgencia = ler.nextInt();
+                System.out.println("");
+                System.out.print("Digite o nome do Banco: ");
+                Banco = ler.next();
+                System.out.println("");
+                System.out.print("Digite o valor da transferencia: ");
+                valorT = ler.nextInt();
+                System.out.println("");                
+                System.out.println("=============================--------=============================");
+                System.out.println("");
+                System.out.println("Voce deseja fazer a transferencia para: ");
+                System.out.println("Conta: " + numConta);
+                System.out.println("Agencia: " + numAgencia);
+                System.out.println("Banco: " + Banco);
+                System.out.println("");
+                System.out.println("=============================--------=============================");
+                
+                System.out.println("");
+                System.out.println("Digite 1 para processeguir com a transferencia");
+                System.out.println("Digite 0 para voltar ao menu principal");
+                System.out.println("");
+                System.out.println("Digite uma das opções acima: ");
+                DigitoT = ler.nextInt();
+                System.out.println("");
+                
+                if(DigitoT == 1){
+                    System.out.println("Transferencia efetuada com sucesso!");
+                    conta3 = saldoConta - valorT;
+                    saldoConta = conta3;
+                
+                System.out.println("");
+                System.out.println("=============================--------=============================");
+                System.out.println("Você quer sair ou fazer mais uma operação: ");
+                System.out.println("0 - Sair do programa");
+                System.out.println("1 - Fazer outra operação");
+                System.out.print("Digite uma das opções acima: ");
+                test = ler.nextInt();
+                
+                if(test == 0){
+                    System.out.println("=============================--------=============================");
+                    System.out.println("");
+                    menu();
+                }else{  
+                    System.out.println("=============================--------=============================");
+                    System.out.println("");
+                    break;
+                }
+                
+                }else if (DigitoT == 0){
+                    break;
+                }
+                            
+            case 0:  
+                System.out.println("");
+                System.out.println("=============================--------=============================");
+                System.out.println("Obrigado por escolher o Banco Facens, volte logo!");
+                System.out.println("=============================--------=============================");
+                System.out.println("");
+                menu();   
+                
+        }
+   
+        }else if(opcao >= 6){
+                System.out.println("Digite uma opção valida."); 
+                System.out.println("=============================--------=============================");
+                System.out.println("");               
+                }       
+        }      
+    }  
+    
+    public static void main(String[] args) {
+        menu();
+    }   
+}
